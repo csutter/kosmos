@@ -1,0 +1,38 @@
+[user]
+  email = git@doublesignal.com
+  name = Christian Sutter
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFZCGaMvY2vFp972eZQPb33f3lnaQo3DS4w7G7zeLIR4
+[alias]
+  a = add
+  b = branch
+  co = checkout
+  cm = commit -m
+  d = diff
+  ds = diff --staged
+  l = log --format=oneline
+  ll = log --format=medium
+  prn = remote prune origin
+  p = push
+  pp = push -u origin HEAD
+  s = status
+  u = pull
+[commit]
+  gpgsign = true
+[gpg]
+  format = ssh
+[merge]
+  ff = only
+  conflictstyle = diff3
+[color]
+  ui = true
+[push]
+  default = simple
+[pull]
+  rebase = true
+[rebase]
+  autostash = true
+[core]
+  excludesfile = ~/.gitignore.global
+  autocrlf = input
+[init]
+  defaultBranch = main
