@@ -47,3 +47,9 @@ else
   export PS1='\u@\h:\[\e[1m\]\w\[\e[0m\]]> '
 fi
 export PROMPT_DIRTRIM=2
+
+# Load aliases
+if [ -f ~/.bash_aliases ]
+then
+  . ~/.bash_aliases
+fi
