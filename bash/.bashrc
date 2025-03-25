@@ -33,6 +33,13 @@ then
 fi
 
 # Set up prompt
+if [ -n "${CONTAINER_ID}" ]
+then
+  prompt_prefix="[  ${CONTAINER_ID}]"
+else
+  prompt_prefix="\u@\h"
+fi
+
 if type __git_ps1 &> /dev/null
 then
   export GIT_PS1_SHOWDIRTYSTATE=1
@@ -42,9 +49,9 @@ then
   export GIT_PS1_SHOWUPSTREAM="auto"
   export GIT_PS1_FORMAT=" (%s)"
 
-  export PROMPT_COMMAND='__git_ps1 "\u@\h:\[\e[1m\]\w\[\e[0m\]" "> " " (%s)"'
+  export PROMPT_COMMAND='__git_ps1 "${prompt_prefix}:\[\e[1m\]\w\[\e[0m\]" "> " " (%s)"'
 else
-  export PS1='\u@\h:\[\e[1m\]\w\[\e[0m\]]> '
+  export PS1='${prompt_prefix}:\[\e[1m\]\w\[\e[0m\]> '
 fi
 export PROMPT_DIRTRIM=2
 
