@@ -33,9 +33,13 @@ then
 fi
 
 # Set up prompt
+cyan=$(tput setaf 14)
+bold=$(tput bold)
+reset=$(tput sgr0)
+
 if [ -n "${CONTAINER_ID}" ]
 then
-  prompt_prefix="[  ${CONTAINER_ID}]"
+  prompt_prefix="${cyan} ${CONTAINER_ID}${reset}"
 else
   prompt_prefix="\u@\h"
 fi
@@ -49,9 +53,9 @@ then
   export GIT_PS1_SHOWUPSTREAM="auto"
   export GIT_PS1_FORMAT=" (%s)"
 
-  export PROMPT_COMMAND='__git_ps1 "${prompt_prefix}:\[\e[1m\]\w\[\e[0m\]" "> " " (%s)"'
+  export PROMPT_COMMAND='__git_ps1 "[${prompt_prefix}:\[\e[1m\]\w\[\e[0m\]]" "\$ " "[%s]"'
 else
-  export PS1='${prompt_prefix}:\[\e[1m\]\w\[\e[0m\]> '
+  export PS1='[${prompt_prefix}:\[\e[1m\]\w\[\e[0m\]]\$ '
 fi
 export PROMPT_DIRTRIM=2
 
