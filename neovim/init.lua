@@ -1,0 +1,2 @@
+-- Configuration
+require('config.base')
